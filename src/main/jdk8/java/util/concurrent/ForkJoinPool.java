@@ -2763,7 +2763,7 @@ public class ForkJoinPool extends AbstractExecutorService {
 
     /**
      * Returns the targeted parallelism level of the common pool.
-     *
+     * 返回公共池的目标并行级别
      * @return the targeted parallelism level of the common pool
      * @since 1.8
      */

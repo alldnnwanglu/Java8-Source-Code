@@ -251,27 +251,34 @@ public class ArrayList<E> extends AbstractList<E>
      * Some VMs reserve some header words in an array.
      * Attempts to allocate larger arrays may result in
      * OutOfMemoryError: Requested array size exceeds VM limit
+     * 数组最大可以允许的尺寸
      */
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     /**
      * Increases the capacity to ensure that it can hold at least the
      * number of elements specified by the minimum capacity argument.
+     * 增加容量
      *
-     * @param minCapacity the desired minimum capacity
+     * @param minCapacity the desired minimum capacity 期望的最小容量
      */
     private void grow(int minCapacity) {
         // overflow-conscious code
-        int oldCapacity = elementData.length;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        int oldCapacity = elementData.length; // 老容量大小
+        int newCapacity = oldCapacity + (oldCapacity >> 1); // 在老的基础上扩大 2倍
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
+        if (newCapacity - MAX_ARRAY_SIZE > 0) // 如果超过最大尺寸
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
-        elementData = Arrays.copyOf(elementData, newCapacity);
+        elementData = Arrays.copyOf(elementData, newCapacity); // 拷贝数据到 elementData 中
     }
 
+    /**
+     * 大容量
+     * @param minCapacity
+     * @return
+     */
     private static int hugeCapacity(int minCapacity) {
         if (minCapacity < 0) // overflow
             throw new OutOfMemoryError();
@@ -282,7 +289,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * Returns the number of elements in this list.
-     *
+     * 返回列表中元素的数量
      * @return the number of elements in this list
      */
     public int size() {
@@ -291,7 +298,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * Returns <tt>true</tt> if this list contains no elements.
-     *
+     * 如果 size == 0  return true
      * @return <tt>true</tt> if this list contains no elements
      */
     public boolean isEmpty() {
@@ -373,9 +380,14 @@ public class ArrayList<E> extends AbstractList<E>
      * Returns an array containing all of the elements in this list
      * in proper sequence (from first to last element).
      *
+     * 返回包含该列表中所有元素的数组
+     * 按顺序（从第一个元素到最后一个元素）
+     *
      * <p>The returned array will be "safe" in that no references to it are
      * maintained by this list.  (In other words, this method must allocate
      * a new array).  The caller is thus free to modify the returned array.
+     *
+     * 返回的数组是安全的，应为他没有引用
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.

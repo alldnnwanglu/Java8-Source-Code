@@ -48,6 +48,8 @@ import java.util.stream.StreamSupport;
  * sorting and searching). This class also contains a static factory
  * that allows arrays to be viewed as lists.
  *
+ * 这个类包含操作数组的各种方法（排序，查找）还包含一个静态工厂原型数组被看做列表
+ *
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.
  *
@@ -132,6 +134,8 @@ public class Arrays {
     /**
      * Sorts the specified array into ascending numerical order.
      *
+     * 排序指定的数组
+     *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
      * by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm
      * offers O(n log(n)) performance on many data sets that cause other
@@ -211,6 +215,8 @@ public class Arrays {
 
     /**
      * Sorts the specified array into ascending numerical order.
+     *
+     * 将指定数组排序为升序数字顺序。
      *
      * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
      * by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm

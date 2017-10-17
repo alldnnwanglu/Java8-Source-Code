@@ -30,6 +30,8 @@ import java.util.concurrent.CountedCompleter;
 /**
  * Helper utilities for the parallel sort methods in Arrays.parallelSort.
  *
+ * 辅助工具在 Arrays.parallelSort() 的并行排序方法
+ *
  * For each primitive type, plus Object, we define a static class to
  * contain the Sorter and Merger implementations for that type:
  *

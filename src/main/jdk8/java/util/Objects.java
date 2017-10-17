@@ -187,20 +187,21 @@ public final class Objects {
      * Checks that the specified object reference is not {@code null}. This
      * method is designed primarily for doing parameter validation in methods
      * and constructors, as demonstrated below:
+     * 检查这个特殊类型的对象是否为空引用，这个方法主要用于方法中进行参数验证和构造函数：如下图
      * <blockquote><pre>
      * public Foo(Bar bar) {
      *     this.bar = Objects.requireNonNull(bar);
      * }
      * </pre></blockquote>
      *
-     * @param obj the object reference to check for nullity
+     * @param obj the object reference to check for nullity 对象引用来检查无效
      * @param <T> the type of the reference
      * @return {@code obj} if not {@code null}
      * @throws NullPointerException if {@code obj} is {@code null}
      */
     public static <T> T requireNonNull(T obj) {
         if (obj == null)
-            throw new NullPointerException();
+            throw new NullPointerException(); // 如果对象为空抛出空指针异常
         return obj;
     }
 

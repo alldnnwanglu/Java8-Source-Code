@@ -68,12 +68,14 @@ final class DualPivotQuicksort {
     /**
      * If the length of an array to be sorted is less than this
      * constant, Quicksort is used in preference to merge sort.
+     * 如果要排序的数组长度小于这个，快速排序会优先于归并排序
      */
     private static final int QUICKSORT_THRESHOLD = 286;
 
     /**
      * If the length of an array to be sorted is less than this
      * constant, insertion sort is used in preference to Quicksort.
+     * 如果要排序的数组长度小于这个，插入排序会优先于快速排序
      */
     private static final int INSERTION_SORT_THRESHOLD = 47;
 
@@ -97,7 +99,7 @@ final class DualPivotQuicksort {
      * Sorts the specified range of the array using the given
      * workspace array slice if possible for merging
      *
-     * @param a the array to be sorted
+     * @param a the array to be sorted  将要排序的数组
      * @param left the index of the first element, inclusive, to be sorted
      * @param right the index of the last element, inclusive, to be sorted
      * @param work a workspace array (slice)
@@ -106,7 +108,7 @@ final class DualPivotQuicksort {
      */
     static void sort(int[] a, int left, int right,
                      int[] work, int workBase, int workLen) {
-        // Use Quicksort on small arrays
+        // Use Quicksort on small arrays 小数组排序使用快速排序
         if (right - left < QUICKSORT_THRESHOLD) {
             sort(a, left, right, true);
             return;
@@ -205,7 +207,7 @@ final class DualPivotQuicksort {
 
     /**
      * Sorts the specified range of the array by Dual-Pivot Quicksort.
-     *
+     * 快速排序
      * @param a the array to be sorted
      * @param left the index of the first element, inclusive, to be sorted
      * @param right the index of the last element, inclusive, to be sorted
@@ -214,7 +216,7 @@ final class DualPivotQuicksort {
     private static void sort(int[] a, int left, int right, boolean leftmost) {
         int length = right - left + 1;
 
-        // Use insertion sort on tiny arrays
+        // Use insertion sort on tiny arrays 在微小数组上使用插入排序
         if (length < INSERTION_SORT_THRESHOLD) {
             if (leftmost) {
                 /*

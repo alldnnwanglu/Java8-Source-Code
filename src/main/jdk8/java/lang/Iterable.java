@@ -37,7 +37,7 @@ import java.util.function.Consumer;
  * <a href="{@docRoot}/../technotes/guides/language/foreach.html">For-each Loop</a>
  * </strong>
  *
- * @param <T> the type of elements returned by the iterator
+ * @param <T> the type of elements returned by the iterator  迭代器返回的元素类型
  *
  * @since 1.5
  * @jls 14.14.2 The enhanced for statement
@@ -45,7 +45,7 @@ import java.util.function.Consumer;
 public interface Iterable<T> {
     /**
      * Returns an iterator over elements of type {@code T}.
-     *
+     * 返回类型元素上的迭代器
      * @return an Iterator.
      */
     Iterator<T> iterator();

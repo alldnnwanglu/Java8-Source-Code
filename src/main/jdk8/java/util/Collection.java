@@ -39,6 +39,10 @@ import java.util.stream.StreamSupport;
  * is typically used to pass collections around and manipulate them where
  * maximum generality is desired.
  *
+ * 这个是集合根源的一个接口，一个集合代表了一组对象，我们叫他元素。有些集合包含重复对象
+ * 有些没有。有些是排好序的有些没有。
+ *
+ *
  * <p><i>Bags</i> or <i>multisets</i> (unordered collections that may contain
  * duplicate elements) should implement this interface directly.
  *
@@ -148,14 +152,14 @@ public interface Collection<E> extends Iterable<E> {
      * Returns the number of elements in this collection.  If this collection
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
-     *
+     * 返回集合里面有多少个元素，如果集合超过 Integer.MAX_VALUE 返回 Integer.MAX_VALUE
      * @return the number of elements in this collection
      */
     int size();
 
     /**
      * Returns <tt>true</tt> if this collection contains no elements.
-     *
+     * 如果集合元素为空返回 true
      * @return <tt>true</tt> if this collection contains no elements
      */
     boolean isEmpty();
@@ -165,6 +169,8 @@ public interface Collection<E> extends Iterable<E> {
      * More formally, returns <tt>true</tt> if and only if this collection
      * contains at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     *
+     * 如果集合包含指定的特殊元素返回 true
      *
      * @param o element whose presence in this collection is to be tested
      * @return <tt>true</tt> if this collection contains the specified

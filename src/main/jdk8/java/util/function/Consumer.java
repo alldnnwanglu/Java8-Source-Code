@@ -34,7 +34,7 @@ import java.util.Objects;
  * <p>This is a <a href="package-summary.html">functional interface</a>
  * whose functional method is {@link #accept(Object)}.
  *
- * @param <T> the type of the input to the operation
+ * @param <T> the type of the input to the operation 输入的操作类型
  *
  * @since 1.8
  */
@@ -42,9 +42,9 @@ import java.util.Objects;
 public interface Consumer<T> {
 
     /**
-     * Performs this operation on the given argument.
+     * Performs this operation on the given argument. 在给定的参数上执行此操作
      *
-     * @param t the input argument
+     * @param t the input argument  给他参数
      */
     void accept(T t);
 
