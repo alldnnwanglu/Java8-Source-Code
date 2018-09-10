@@ -125,7 +125,6 @@ public class ArrayList<E> extends AbstractList<E>
      * Shared empty array instance used for default sized empty instances. We
      * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when
      * first element is added.
-     *
      */
     private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
@@ -231,7 +230,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     private void ensureCapacityInternal(int minCapacity) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) { // 是非使用了默认的数组存储
             minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
         }
 
@@ -242,7 +241,7 @@ public class ArrayList<E> extends AbstractList<E>
         modCount++;
 
         // overflow-conscious code
-        if (minCapacity - elementData.length > 0)
+        if (minCapacity - elementData.length > 0) // 如果添加的后的大小 > 数组大小
             grow(minCapacity);
     }
 
@@ -324,6 +323,7 @@ public class ArrayList<E> extends AbstractList<E>
      * More formally, returns the lowest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * 返回元素在列表中的位置 -1 表示不存在(前序遍历)
      */
     public int indexOf(Object o) {
         if (o == null) {
@@ -344,6 +344,7 @@ public class ArrayList<E> extends AbstractList<E>
      * More formally, returns the highest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     * 返回元素在列表中的位置 -1 表示不存在(返序遍历)
      */
     public int lastIndexOf(Object o) {
         if (o == null) {
@@ -670,6 +671,7 @@ public class ArrayList<E> extends AbstractList<E>
      * runtime exception.  This method does *not* check if the index is
      * negative: It is always used immediately prior to an array access,
      * which throws an ArrayIndexOutOfBoundsException if index is negative.
+     * 是非越界检查
      */
     private void rangeCheck(int index) {
         if (index >= size)
@@ -859,6 +861,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * An optimized version of AbstractList.Itr
+     * 迭代器接口实现
      */
     private class Itr implements Iterator<E> {
         int cursor;       // index of next element to return

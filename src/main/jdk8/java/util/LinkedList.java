@@ -90,6 +90,7 @@ public class LinkedList<E>
      * Pointer to first node.
      * Invariant: (first == null && last == null) ||
      *            (first.prev == null && first.item != null)
+     *            头结点
      */
     transient Node<E> first;
 
@@ -97,6 +98,7 @@ public class LinkedList<E>
      * Pointer to last node.
      * Invariant: (first == null && last == null) ||
      *            (last.next == null && last.item != null)
+     *            尾节点
      */
     transient Node<E> last;
 
@@ -411,7 +413,7 @@ public class LinkedList<E>
             return false;
 
         Node<E> pred, succ;
-        if (index == size) {
+        if (index == size) { // 链表尾部插入
             succ = null;
             pred = last;
         } else {
@@ -419,19 +421,20 @@ public class LinkedList<E>
             pred = succ.prev;
         }
 
+        // 开始插入数据
         for (Object o : a) {
             @SuppressWarnings("unchecked") E e = (E) o;
             Node<E> newNode = new Node<>(pred, e, null);
-            if (pred == null)
-                first = newNode;
+            if (pred == null) // 如果链表是空的
+                first = newNode; // 他就是第一个
             else
-                pred.next = newNode;
-            pred = newNode;
+                pred.next = newNode;// 否者插入到他后面
+            pred = newNode;//链表最后一个元素
         }
 
-        if (succ == null) {
+        if (succ == null) { // 尾部插入
             last = pred;
-        } else {
+        } else {// 链表双向关联,
             pred.next = succ;
             succ.prev = pred;
         }
@@ -536,6 +539,7 @@ public class LinkedList<E>
     /**
      * Tells if the argument is the index of a valid position for an
      * iterator or an add operation.
+     * 位置是否存在
      */
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
